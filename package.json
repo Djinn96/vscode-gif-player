@@ -57,6 +57,18 @@
 				"title": "Previous Frame",
 				"category": "Gif Player",
 				"enablement": "gifPlayerActive"
+			},
+			{
+				"command": "gifPlayer.zoomInFrame",
+				"title": "Zoom In Frame",
+				"category": "Gif Player",
+				"enablement": "gifPlayerActive"
+			},
+			{
+				"command": "gifPlayer.zoomOutFrame",
+				"title": "Zoom Out Frame",
+				"category": "Gif Player",
+				"enablement": "gifPlayerActive"
 			}
 		],
 		"keybindings": [

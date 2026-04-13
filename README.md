@@ -16,11 +16,15 @@ Adds a play/pause button and a scrubber for controlling gif playback
 
 ## Commands
 
-- `gifPlayer.togglePlay` — Toggles if the gif is playing or paused. Defaults keybinding: <kbd>space</kbd>
+- `gifPlayer.togglePlay` — Toggles if the gif is playing or paused. Default keybinding: <kbd>space</kbd>
 
-- `gifPlayer.nextFrame` — Go to the next frame in the gif. Defaults keybinding: <kbd>right</kbd>
+- `gifPlayer.nextFrame` — Go to the next frame in the gif. Default keybinding: <kbd>right</kbd>
 
-- `gifPlayer.previousFrame` — Go to the previous frame in the gif. Defaults keybinding: <kbd>left</kbd>
+- `gifPlayer.previousFrame` — Go to the previous frame in the gif. Default keybinding: <kbd>left</kbd>
+
+- `gifPlayer.zoomInFrame` — Zoom into the frame. Default keybinding: <kbd>ctrl+up</kbd>
+
+- `gifPlayer.zoomOutFrame` — Zoom out of the frame. Default keybinding: <kbd>ctrl+down</kbd>
 
 Note that these keybindings are only active when you are focused on the Gif Player editor.
 
