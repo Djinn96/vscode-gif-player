@@ -1,4 +1,4 @@
-import { h, render } from 'preact';
+import { render } from 'preact';
 import { useEffect, useReducer } from 'preact/hooks';
 import * as actions from './actions';
 import { GifPlayer } from './player';

@@ -1,6 +1,5 @@
-import { h } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
-import { Gif } from 'util/loadGif';
+import { Gif } from '../util/loadGif';
 
 /**
  * Draws a gif using a canvas.
@@ -10,7 +9,7 @@ export function GifCanvas(props: {
     frame: number,
     style?: any,
 }) {
-    const canvasRef = useRef<HTMLCanvasElement>();
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         const frame = props.gif.frames[props.frame];

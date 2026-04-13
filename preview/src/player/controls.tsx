@@ -1,6 +1,5 @@
-import { h } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { Gif } from 'util/loadGif';
+import { Gif } from '../util/loadGif';
 
 interface ControlsState {
     isDragging?: boolean;

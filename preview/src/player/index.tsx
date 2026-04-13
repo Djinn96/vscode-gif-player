@@ -1,4 +1,3 @@
-import { h } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import * as actions from '../actions';
 import { Gif } from '../util/loadGif';
