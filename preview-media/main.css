@@ -44,6 +44,8 @@ main {
 .codicon-pause::before { content: '\ead1'; }
 .codicon-debug-step-back::before { content: '\eb8f'; }
 .codicon-debug-step-over::before { content: '\ead6'; }
+.codicon-zoom-in::before { content: '\eb81'; }
+.codicon-zoom-out::before { content: '\eb82'; }
 
 .codicon-loading::before { content: '\eb19'; }
 .codicon-loading {

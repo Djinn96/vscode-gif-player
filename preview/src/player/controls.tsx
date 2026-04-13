@@ -6,14 +6,16 @@ interface ControlsState {
 }
 
 /**
- * Controls for the git player.
+ * Controls for the gif player.
  */
 export function Controls(props: {
     gif: Gif;
     frame: number;
+    zoom: number;
     playing: boolean;
     updateIsDragging: (isDragging: boolean) => void;
     updateFrame: (frame: number) => void;
+    updateZoom: (zoom: number) => void;
     updatePlaying: (playing: boolean) => void;
 }) {
     const [state, setState] = useState<ControlsState>({});
@@ -119,6 +121,26 @@ export function Controls(props: {
                     }}
                     onClick={() => {
                         props.updateFrame(props.frame + 1);
+                    }} />
+                <ControlButton
+                    className='zoomInButton'
+                    title={"Zoom In"}
+                    icon={'codicon-zoom-in'}
+                    style={{
+                        marginLeft: '1em',
+                    }}
+                    onClick={() => {
+                        props.updateZoom(props.zoom * 1.25);
+                    }} />
+                <ControlButton
+                    className='zoomOutButton'
+                    title={"Zoom Out"}
+                    icon={'codicon-zoom-out'}
+                    style={{
+                        marginLeft: '1em',
+                    }}
+                    onClick={() => {
+                        props.updateZoom(props.zoom * 0.8);
                     }} />
             </div>
         </div>

@@ -79,6 +79,7 @@ function Main() {
                         dispatch={dispatch}
                         gif={state.gif}
                         frame={state.frame}
+                        zoom={state.zoom}
                         playing={state.playing} />
                 );
             }

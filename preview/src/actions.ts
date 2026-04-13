@@ -7,6 +7,7 @@ export enum ActionType {
     DidError,
 
     SetFrame,
+    SetZoom,
     TogglePlay,
 }
 
@@ -35,6 +36,14 @@ export class SetFrame {
     ) { }
 }
 
+export class SetZoom {
+    public readonly type = ActionType.SetZoom;
+
+    constructor(
+        public readonly zoom: number,
+    ) { }
+}
+
 export class TogglePlay {
     public readonly type = ActionType.TogglePlay;
 
@@ -47,6 +56,7 @@ export type Actions =
     | DidLoad
     | DidError
     | SetFrame
+    | SetZoom
     | TogglePlay;
 
 
@@ -58,6 +68,7 @@ export function appStateReducer(state: appState.AppState, action: Actions): appS
                 return new appState.Ready(
                     action.gif,
                     action.vscodeState?.frame || 0,
+                    1,
                     false);
             }
         case ActionType.DidError:
@@ -77,6 +88,23 @@ export function appStateReducer(state: appState.AppState, action: Actions): appS
                 return new appState.Ready(
                     state.gif,
                     frame,
+                    state.zoom,
+                    state.playing);
+            }
+        case ActionType.SetZoom:
+            {
+                if (state.stage !== appState.AppStage.Ready) {
+                    throw new Error('Bad state');
+                }
+
+                var zoom = action.zoom
+                zoom = Math.min(zoom,5)
+                zoom = Math.max(zoom,0.2)
+
+                return new appState.Ready(
+                    state.gif,
+                    state.frame,
+                    zoom,
                     state.playing);
             }
         case ActionType.TogglePlay:
@@ -88,6 +116,7 @@ export function appStateReducer(state: appState.AppState, action: Actions): appS
                 return new appState.Ready(
                     state.gif,
                     state.frame,
+                    state.zoom,
                     action.playing);
             }
     }

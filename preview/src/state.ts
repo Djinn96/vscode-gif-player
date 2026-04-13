@@ -24,6 +24,7 @@ export class Ready {
     constructor(
         public readonly gif: Gif,
         public readonly frame: number,
+        public readonly zoom: number,
         public readonly playing: boolean,
     ) { }
 }

@@ -23,6 +23,16 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('gifPlayer.previousFrame', () => {
 			provider.previousFrame();
 		}));
+
+	context.subscriptions.push(
+		vscode.commands.registerCommand('gifPlayer.zoomInFrame', () => {
+			provider.zoomInFrame();
+		}));
+
+	context.subscriptions.push(
+		vscode.commands.registerCommand('gifPlayer.zoomOutFrame', () => {
+			provider.zoomOutFrame();
+		}));
 }
 
 
@@ -172,5 +182,13 @@ class GifPlayerProvider implements vscode.CustomReadonlyEditorProvider {
 
 	previousFrame() {
 		this.activeWebview?.postMessage({ type: 'previousFrame' });
+	}
+
+	zoomInFrame() {
+		this.activeWebview?.postMessage({ type: 'zoomInFrame' });
+	}
+
+	zoomOutFrame() {
+		this.activeWebview?.postMessage({ type: 'zoomOutFrame' });
 	}
 }

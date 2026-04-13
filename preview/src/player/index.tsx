@@ -12,6 +12,7 @@ interface GifPlayerProps {
     gif: Gif;
     playing: boolean;
     frame: number;
+    zoom: number;
     dispatch: (action: actions.Actions) => void;
 }
 
@@ -55,6 +56,14 @@ export function GifPlayer(props: GifPlayerProps) {
                     {
                         return props.dispatch(new actions.SetFrame((stateRef.current?.frame ?? 0) - 1));
                     }
+                case 'zoomInFrame':
+                    {
+                        return props.dispatch(new actions.SetZoom((stateRef.current?.zoom ?? 1) * 1.25));
+                    }
+                case 'zoomOutFrame':
+                    {
+                        return props.dispatch(new actions.SetZoom((stateRef.current?.zoom ?? 1) * 0.8));
+                    }
             }
         };
 
@@ -79,20 +88,21 @@ export function GifPlayer(props: GifPlayerProps) {
                 <GifCanvas
                     gif={props.gif}
                     frame={props.frame}
+                    zoom={props.zoom}
                     style={{
                         display: 'block',
                         alignSelf: 'center',
                         margin: 'auto',
-                        maxWidth: '100%',
-                        maxHeight: '100%',
                     }} />
             </div>
 
             <Controls
                 gif={props.gif}
                 frame={props.frame}
+                zoom={props.zoom}
                 playing={props.playing}
                 updateFrame={frame => props.dispatch(new actions.SetFrame(frame))}
+                updateZoom={zoom => props.dispatch(new actions.SetZoom(zoom))}
                 updatePlaying={playing => props.dispatch(new actions.TogglePlay(playing))}
                 updateIsDragging={isDragging => setState({ ...state, isDragging })} />
         </main >

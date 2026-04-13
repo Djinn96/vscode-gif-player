@@ -71,6 +71,14 @@
 			{
 				"command": "gifPlayer.previousFrame",
 				"key": "left"
+			},
+			{
+				"command": "gifPlayer.zoomInFrame",
+				"key": "ctrl+up"
+			},
+			{
+				"command": "gifPlayer.zoomOutFrame",
+				"key": "ctrl+down"
 			}
 		],
 		"menus": {
